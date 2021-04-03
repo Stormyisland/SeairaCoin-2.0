@@ -80,5 +80,17 @@ SeairaCoin.addBlock(new Block(3, "03/29/2021", { amount: 9 }));
 console.log('Mining Block: 4...Yay! 11942 Seaira Coins Trasnfer');
 SeairaCoin.addBlock(new Block(4, "03/29/2021", { amount: 11941 }));
 
+console.log('Mining Block: 1...Yay! 1387 Seaira Coins Trasnfer!');
+SeairaCoin.addBlock(new Block(1, "03/29/2021", { amount: 1387 }));
+
+console.log('Mining Block: 2...Yay! 19967 Seaira Coins Trasnfer');
+SeairaCoin.addBlock(new Block(2, "03/29/2021", { amount: 19967 })); 
+
+console.log('Mining Block: 3... SUCCESS eh Yay! 967 Seaira Coins Trasnfer');
+SeairaCoin.addBlock(new Block(3, "03/29/2021", { amount: 679 }));
+
+console.log('Mining Block: 4...Yay! 142 Seaira Coins Trasnfer');
+SeairaCoin.addBlock(new Block(4, "03/29/2021", { amount: 142 }));
+
   console.log('is blockchain valid? ' + SeairaCoin.isChainValid());
 console.log(JSON.stringify(SeairaCoin, null, 4));localStorage
