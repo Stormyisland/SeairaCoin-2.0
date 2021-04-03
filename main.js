@@ -1,7 +1,7 @@
 const SHA256 = require('crypto-js/sha256');
 
 class Transaction{
-    constuctor(fromAddress, toAddress, amount){
+    constructor(fromAddress, toAddress, amount){
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.amount = amount;
@@ -25,6 +25,7 @@ class Block{
             this.nonce++;
             this.hash = this.calculateHash();
         }
+
         console.log("block mined: "+ this.hash);
 
     }
@@ -46,11 +47,6 @@ class Blockchain{
         return this.chain[this.chain.length - 1];
     }
 
-    /*addBlock(newBlock){
-        newBlock.previousHash = this.getLatestBlock().hash;
-        newBlock.mineBlock(this.difficulty);
-        this.chain.push(newBlock);
-    }*/
     minePendingTransactions(miningRewardAddress){
         let block = new Block(Date.now(), this.pendingTransactions);
         block.mineBlock(this.difficulty);
@@ -90,7 +86,7 @@ class Blockchain{
 let seairaCoin = new Blockchain();
 seairaCoin.createTransaction(new Transaction('address 1', 'address 2', 100));
 seairaCoin.createTransaction(new Transaction('address 2', 'address 1', 50));
-seairaCoin.createTransaction(new Transaction('address 4', 'address 4', 150));
+
 
 
 console.log('\n Starting the Miner 49er...');
