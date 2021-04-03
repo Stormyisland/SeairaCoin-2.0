@@ -35,7 +35,7 @@ class Blockchain{
         this.chain = [this.createGenesisBlock()];
         this.difficulty = 2;
         this.pendingTransactions = [];
-        this.miningRewards = 100;
+        this.miningReward = 100;
     }
 
     createGenesisBlock(){
@@ -90,6 +90,7 @@ class Blockchain{
 let seairaCoin = new Blockchain();
 seairaCoin.createTransaction(new Transaction('address 1', 'address 2', 100));
 seairaCoin.createTransaction(new Transaction('address 2', 'address 1', 50));
+seairaCoin.createTransaction(new Transaction('address 4', 'address 4', 150));
 
 
 console.log('\n Starting the Miner 49er...');
@@ -97,29 +98,12 @@ seairaCoin.minePendingTransactions('Jacques-address');
 
 console.log('\nBalance of Jacques is', seairaCoin.getBalanceOfAddress('Jacques-address'));
 
-/*console.log('Mining Block: 1...Yay! 87 Seaira Coins Trasnfer!');
-SeairaCoin.addBlock(new Block(1, "03/29/2021", { amount: 87 }));
+console.log('\n Starting the Miner 49er...again...');
+seairaCoin.minePendingTransactions('Jacques-address');
 
-console.log('Mining Block: 2...Yay! 1067 Seaira Coins Trasnfer');
-SeairaCoin.addBlock(new Block(2, "03/29/2021", { amount: 1067 }));
+console.log('\nBalance of Jacques is', seairaCoin.getBalanceOfAddress('Jacques-address'));
 
-console.log('Mining Block: 3... SUCCESS eh Yay! 9 Seaira Coins Trasnfer');
-SeairaCoin.addBlock(new Block(3, "03/29/2021", { amount: 9 }));
+console.log('\n Starting the Miner 49er..yet....again...');
+seairaCoin.minePendingTransactions('Jacques-address');
 
-console.log('Mining Block: 4...Yay! 11942 Seaira Coins Trasnfer');
-SeairaCoin.addBlock(new Block(4, "03/29/2021", { amount: 11941 }));
-
-console.log('Mining Block: 5...Yay! 1387 Seaira Coins Trasnfer!');
-SeairaCoin.addBlock(new Block(1, "03/29/2021", { amount: 1387 }));
-
-console.log('Mining Block: 6...Yay! 19967 Seaira Coins Trasnfer');
-SeairaCoin.addBlock(new Block(2, "03/29/2021", { amount: 19967 }));
-
-console.log('Mining Block: 7... SUCCESS eh Yay! 967 Seaira Coins Trasnfer');
-SeairaCoin.addBlock(new Block(3, "03/29/2021", { amount: 679 }));
-
-console.log('Mining Block: 8...Yay! 142 Seaira Coins Trasnfer');
-SeairaCoin.addBlock(new Block(4, "03/29/2021", { amount: 142 }));
-
-console.log('is blockchain valid? ' + SeairaCoin.isChainValid());
-console.log(JSON.stringify(SeairaCoin, null, 4));localStorage*/
+console.log('\nBalance of Jacques is', seairaCoin.getBalanceOfAddress('Jacques-address'));
