@@ -1,17 +1,22 @@
 const SHA256 = require('crypto-js/sha256');
 
+class Transactions{
+    constuctor(fromAddress, toAddress, amount){
+        this.fromAddress = fromAddress;
+        this.toAddress = toAddress;
+        this.amount = amount;
+    }
+}
 class Block{
-    constructor(index, timestamp, data, previousHash = ''){
-     this.index=index;
-     this.timestamp=timestamp;
-     this.data=data;
-     this.previousHash=previousHash;
-     this.hash=this.calculateHash();
-     
-     this.nonce=0;  
+    constructor( timestamp, transactions, previousHash = ''){
+     this.timestamp = timestamp;
+     this.transactions = transactions;
+     this.previousHash = previousHash;
+     this.hash = this.calculateHash();
+     this.nonce = 0;
     }
     calculateHash(){
-        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)+ this.nonce).toString();
+        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.transactions)+ this.nonce).toString();
 
     }
 
@@ -28,22 +33,24 @@ class Block{
 class Blockchain{
     constructor(){
         this.chain = [this.createGenesisBlock()];
-        this.difficulty = 4;
+        this.difficulty = 2;
+        this,pendingTransactions = [];
+        this.miningRewards = 100;
     }
 
     createGenesisBlock(){
-        return new Block(0, "03/29/2021", "Genesis block", "0");
+        return new Block( "03/29/2021", "Genesis block", "0");
     }
 
     getLatestBlock(){
         return this.chain[this.chain.length - 1];
     }
 
-    addBlock(newBlock){
+    /*addBlock(newBlock){
         newBlock.previousHash = this.getLatestBlock().hash;
         newBlock.mineBlock(this.difficulty);
         this.chain.push(newBlock);
-    }
+    }*/
 
 
 
@@ -53,12 +60,12 @@ class Blockchain{
         const previousBlock = this.chain[i];
         
         if (currentBlock.hash !== currentBlock.calculateHash());{
-            return false;
-            }
+         return false;
+        }
         
         if(currentBlock.previousHash !== previousBlock.hash){
         return false;
-         }
+        }
 
     }
      return true;
@@ -68,7 +75,7 @@ class Blockchain{
 
 let SeairaCoin = new Blockchain();
 
-console.log('Mining Block: 1...Yay! 87 Seaira Coins Trasnfer!');
+/*console.log('Mining Block: 1...Yay! 87 Seaira Coins Trasnfer!');
 SeairaCoin.addBlock(new Block(1, "03/29/2021", { amount: 87 }));
 
 console.log('Mining Block: 2...Yay! 1067 Seaira Coins Trasnfer');
@@ -80,17 +87,17 @@ SeairaCoin.addBlock(new Block(3, "03/29/2021", { amount: 9 }));
 console.log('Mining Block: 4...Yay! 11942 Seaira Coins Trasnfer');
 SeairaCoin.addBlock(new Block(4, "03/29/2021", { amount: 11941 }));
 
-console.log('Mining Block: 1...Yay! 1387 Seaira Coins Trasnfer!');
+console.log('Mining Block: 5...Yay! 1387 Seaira Coins Trasnfer!');
 SeairaCoin.addBlock(new Block(1, "03/29/2021", { amount: 1387 }));
 
-console.log('Mining Block: 2...Yay! 19967 Seaira Coins Trasnfer');
+console.log('Mining Block: 6...Yay! 19967 Seaira Coins Trasnfer');
 SeairaCoin.addBlock(new Block(2, "03/29/2021", { amount: 19967 })); 
 
-console.log('Mining Block: 3... SUCCESS eh Yay! 967 Seaira Coins Trasnfer');
+console.log('Mining Block: 7... SUCCESS eh Yay! 967 Seaira Coins Trasnfer');
 SeairaCoin.addBlock(new Block(3, "03/29/2021", { amount: 679 }));
 
-console.log('Mining Block: 4...Yay! 142 Seaira Coins Trasnfer');
+console.log('Mining Block: 8...Yay! 142 Seaira Coins Trasnfer');
 SeairaCoin.addBlock(new Block(4, "03/29/2021", { amount: 142 }));
 
   console.log('is blockchain valid? ' + SeairaCoin.isChainValid());
-console.log(JSON.stringify(SeairaCoin, null, 4));localStorage
+console.log(JSON.stringify(SeairaCoin, null, 4));localStorage*/
