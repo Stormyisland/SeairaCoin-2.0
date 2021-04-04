@@ -13,7 +13,7 @@ tx1.signTransaction(myKey);
 seairaCoin.addTransaction(tx1);
 
 
-/*const tx2 = new Transaction(myWalletAddress, 'Public key gose here', 85);
+/*const tx2 = new Transaction(myWalletAddress, 'Public key goes here', 85);
 tx2.signTransaction(myKey);
 seairaCoin.addTransaction(tx2);*/
 
