@@ -8,7 +8,7 @@ const myWalletAddress = myKey.getPublic('hex');
 
 let seairaCoin = new Blockchain();
 
-const tx1 = new Transaction(myWalletAddress, 'Public key gose here', 10);
+const tx1 = new Transaction(myWalletAddress, 'Public key goes here', 10);
 tx1.signTransaction(myKey);
 seairaCoin.addTransaction(tx1);
 
