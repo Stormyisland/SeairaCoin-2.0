@@ -8,6 +8,7 @@ class Transaction{
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.amount = amount;
+        this.lattitude = lattatude;
     }
 
     calculateHash(){
