@@ -8,12 +8,12 @@ class Transaction{
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.amount = amount;
-        this.lattitude = lattatude;
+        this.lattitude = lattitude;
         this.longitude = longitude;
     }
 
     calculateHash(){
-        return SHA256(this.fromAddress + this.toAddress + this.amount).toString();
+        return SHA256(this.fromAddress + this.toAddress + this.amount + this.lattitude = lattitude).toString();
     }
 
     signTransaction(signingKey){
